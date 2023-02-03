@@ -1,14 +1,54 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './src/screens/HomeScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+import AccessibilityScreen from './src/screens/AccessibilityScreen';
+import HelpAndSupportScreen from './src/screens/HelpAndSupportScreen';
+import SendFeedbackScreen from './src/screens/SendFeedbackScreen';
+import FindProductScreen from './src/screens/FindProductScreen';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  function App() {
+    const Stack = createNativeStackNavigator();
+    return (
+      <NavigationContainer>
+        <StatusBar barStyle="auto"/>
+        <Stack.Navigator initialRouteName='Home'>
+          <Stack.Screen
+            name={'Home'}
+            component={HomeScreen}
+            options={{ title: "Find your product" }} 
+            />
+            <Stack.Screen
+            name={'FindProduct'}
+            component={FindProductScreen}
+            options={{ title: "Find your Product" }} 
+            />
+            <Stack.Screen
+            name={'Settings'}
+            component={SettingsScreen}
+            options={{ title: "Settings" }} 
+            />
+            <Stack.Screen
+            name={'Accessibility'}
+            component={AccessibilityScreen}
+            options={{ title: "Accessibility Settings" }} 
+            />
+            <Stack.Screen
+            name={'HelpandSupport'}
+            component={HelpAndSupportScreen}
+            options={{ title: "Help and Support" }} 
+            />
+            <Stack.Screen
+            name={'SendFeedback'}
+            component={SendFeedbackScreen}
+            options={{ title: "Send Feedback" }} 
+            />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
 
 const styles = StyleSheet.create({
   container: {
@@ -18,3 +58,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
