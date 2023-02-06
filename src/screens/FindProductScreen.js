@@ -1,8 +1,15 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
 
 function FindProductScreen() {
     return (
-        <View></View>
+        <View>
+            <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+                <View>
+                <MaterialIcons style={styles.iconButton} name='settings' size={28}/>
+                </View>
+            </TouchableOpacity>
+        </View>
     )
 }
 

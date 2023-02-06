@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import { AppRegistry, Button, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import { MaterialIcons } from '@expo/vector-icons';
-import { ScreenStackHeaderRightView } from 'react-native-screens';
 
 const storeName = [
     { label: 'Lidl', value: '1' },
@@ -47,12 +46,11 @@ const shopProduct = [
     const [city, setCity] = useState(null);
     const [address, setAddress] = useState(null);
     const [product, setProducts] = useState(null);
-
+    
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
             <View>
-              
                 <MaterialIcons style={styles.iconButton} name='settings' size={28}/>
             </View>
             </TouchableOpacity>

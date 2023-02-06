@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native';
+import { StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
@@ -18,7 +18,7 @@ import FindProductScreen from './src/screens/FindProductScreen';
           <Stack.Screen
             name={'Home'}
             component={HomeScreen}
-            options={{ title: "Find your product" }} 
+            options={{ title: "Find your product"}}
             />
             <Stack.Screen
             name={'FindProduct'}
