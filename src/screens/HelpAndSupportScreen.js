@@ -1,9 +1,11 @@
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
-import React from "react";
+import React, { useContext } from "react";
+import themeContext from "../../styles/themeContext";
 
 function HelpAndSupportScreen() {
+    const theme = useContext(themeContext);
 
     const speech = () => {
         const theText = `FAQs How do you use the app? 
@@ -30,7 +32,7 @@ function HelpAndSupportScreen() {
     };
 
     return (
-        <View>
+        <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
             <Text style={styles.title}>FAQs</Text>
             <Text style={styles.subHeading}>How do you use the app?</Text>
             <Text style={styles.text}>
@@ -47,16 +49,16 @@ function HelpAndSupportScreen() {
             <Text style={styles.subHeading}>Do I need an account to use the app?</Text>
             <Text style={styles.text}>
                 No, there is no need to sign up or log in to use the app at this time.
-             </Text>
-             <Text style={styles.subHeading}>Can I turn on text to speech?</Text>
-             <Text style={styles.text}>
+            </Text>
+            <Text style={styles.subHeading}>Can I turn on text to speech?</Text>
+            <Text style={styles.text}>
                 Yes, if you click the wheel in the corner and select 
                 'Accessibility', you can turn on audio and adjust the 
                 volume.
-             </Text>
-             <TouchableOpacity onPress={speech}>
+            </Text>
+            <TouchableOpacity onPress={speech}>
                 <View style={styles.speechBtn}>
-                    <AntDesign name='sound' size={28}/>
+                   <AntDesign name='sound' size={28}/>
                 </View>
             </TouchableOpacity>
         </View>
@@ -71,13 +73,13 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     subHeading: {
-        fontSize: 15,
+        fontSize: 17,
         alignSelf: 'flex-start',
         padding: 5,
         fontWeight: 'bold',
     },
     text: {
-        fontSize: 15,
+        fontSize: 17,
         alignSelf: 'flex-start',
         padding: 5,
     },
