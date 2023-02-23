@@ -8,11 +8,11 @@ import AccessibilityScreen from './src/screens/AccessibilityScreen';
 import HelpAndSupportScreen from './src/screens/HelpAndSupportScreen';
 import SendFeedbackScreen from './src/screens/SendFeedbackScreen';
 import FindProductScreen from './src/screens/FindProductScreen';
+import ShoppingListScreen from './src/screens/ShoppingListScreen';
 import { EventRegister } from "react-native-event-listeners";
 import { useEffect, useState } from 'react';
 import theme from './styles/theme';
 import themeContext from './styles/themeContext';
-
 
  function App() {
     const [darkMode, setDarkMode] = useState(false);
@@ -20,6 +20,7 @@ import themeContext from './styles/themeContext';
     useEffect (() => {
       const listener = EventRegister.addEventListener('changeTheme', (data) => {
         setDarkMode(data)
+        console.log(data);
       })
       return () => {
         EventRegister.removeAllListeners(listener)
@@ -61,6 +62,11 @@ import themeContext from './styles/themeContext';
               name={'SendFeedback'}
               component={SendFeedbackScreen}
               options={{ title: "Send Feedback" }} 
+              />
+              <Stack.Screen
+              name={'ShoppingList'}
+              component={ShoppingListScreen}
+              options={{ title: "Shopping List" }} 
               />
           </Stack.Navigator>
         </NavigationContainer>

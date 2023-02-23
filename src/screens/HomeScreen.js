@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -53,6 +53,10 @@ const shopProduct = [
             <View>
                 <MaterialIcons style={styles.iconButton} name='settings' size={28}/>
             </View>
+            <Button
+            color='#48857E'
+            onPress={() => navigation.navigate('ShoppingList')}
+            title="My shopping List"/>
             </TouchableOpacity>
             <View style={styles.Dropdown}>
                 <Text style={styles.Text}>Search Shop</Text>
@@ -107,16 +111,13 @@ const shopProduct = [
                     <Text style={styles.Searchtext}>Search</Text>
                 </Pressable>
             </View>
-            <View>
-              <Text>{product}</Text>
-            </View>
         </View>
     );
   }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#9CCAC4',
+    backgroundColor: 'white',
     padding: 20,
   },
   Dropdown: {
@@ -124,6 +125,7 @@ const styles = StyleSheet.create({
   },
   Text: {
     fontSize: 18,
+    color: '#48857E',
   },
   iconButton: {
     padding: 5,
@@ -135,17 +137,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
     borderRadius: 30,
     elevation: 3,
-    backgroundColor: 'white',
+    backgroundColor: '#9CCAC4',
   },
   Searchtext: {
     fontSize: 16,
     lineHeight: 21,
     fontWeight: 'bold',
     letterSpacing: 0.25,
-    color: 'black',
+    color: 'white',
   },
   buttonView: {
-    paddingTop: 200,
+    paddingTop: 150,
   },
 });
 
